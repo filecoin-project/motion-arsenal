@@ -111,6 +111,18 @@ class DummyConfig extends EventEmitter {
                     supportsVersioning: true,
                 },
             },
+            'motionbackend': {
+                type: 'motion',
+                objectId: 'motionbackend',
+                legacyAwsBehavior: true,
+                details: {
+                    bucketMatch: true,
+                    motionDaemonEndpoint: { host: 'localhost', port: 40080 },
+                    https: true,
+                    pathStyle: false,
+                    supportsVersioning: false,
+                },
+            },
         };
         if (this._isLegacy) {
             this.locationConstraints.legacy = {
@@ -204,6 +216,11 @@ class DummyConfig extends EventEmitter {
     getPfsDaemonEndpoint(locationConstraint) {
         return process.env[`${locationConstraint}_PFSD_ENDPOINT`] ||
         this.locationConstraints[locationConstraint].details.pfsDaemonEndpoint;
+    }
+
+    getMotionDaemonEndpoint(locationConstraint) {
+        return process.env[`${locationConstraint}_MOTION_ENDPOINT`] ||
+        this.locationConstraints[locationConstraint].details.motionDaemonEndpoint;
     }
 }
 

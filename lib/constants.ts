@@ -92,7 +92,7 @@ export const objectKeyByteLimit = 915;
  */
 export const zenkoSeparator = ':';
 /* eslint-disable camelcase */
-export const externalBackends = { aws_s3: true, azure: true, gcp: true, pfs: true };
+export const externalBackends = { aws_s3: true, azure: true, gcp: true, pfs: true, motion: true };
 export const replicationBackends = { aws_s3: true, azure: true, gcp: true };
 // hex digest of sha256 hash of empty string:
 export const emptyStringHash = crypto.createHash('sha256')
@@ -115,7 +115,7 @@ export const externalBackendHealthCheckInterval = 60000;
 // as a string as first parameter of the get/delete methods.
 export const clientsRequireStringKey = { sproxyd: true, cdmi: true };
 export const hasCopyPartBackends = { aws_s3: true, gcp: true };
-export const versioningNotImplBackends = { azure: true, gcp: true };
+export const versioningNotImplBackends = { azure: true, gcp: true, motion: true };
 // user metadata applied on zenko-created objects
 export const zenkoIDHeader = 'x-amz-meta-zenko-instance-id';
 // Default expiration value of the S3 pre-signed URL duration

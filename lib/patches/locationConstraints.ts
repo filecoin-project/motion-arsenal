@@ -37,6 +37,7 @@ export type Location = {
         | 'gcp'
         | 'scality'
         | 'pfs'
+        | 'motion'
         | 'scality';
     name: string;
     objectId: string;
@@ -183,6 +184,18 @@ export function patchLocations(
                         };
                     }
                     break;
+                case 'location-motion-v1':
+                    location.type = 'motion';
+                    if (l.details) {
+                        location.details = {
+                            supportsVersioning: false,
+                            bucketMatch: true,
+                            motionDaemonEndpoint: {
+                                host: l.details.host,
+                                port: l.details.port,
+                            },
+                        };
+                    }
                 case 'location-scality-hdclient-v2':
                     location.type = 'scality';
                     if (l.details && l.details.bootstrapList) {
