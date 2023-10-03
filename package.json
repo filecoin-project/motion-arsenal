@@ -30,7 +30,7 @@
     "base-x": "3.0.8",
     "base62": "2.0.1",
     "bson": "4.0.0",
-    "debug": "~4.1.0",
+    "debug": "~4.3.1",
     "diskusage": "^1.1.1",
     "fcntl": "github:scality/node-fcntl#0.2.2",
     "hdclient": "scality/hdclient#1.1.5",
